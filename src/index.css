@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #C9A96E;
+  --gold-light: #E8CC99;
+  --gold-dim: #7a6240;
+  --obsidian: #080c14;
+  --navy: #0d1526;
+  --navy-mid: #121d35;
+  --navy-border: #1e2d4a;
+  --muted: #8897b2;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--obsidian);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display { font-family: 'Cormorant Garamond', serif; }
+
+/* Gold shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-gold-shimmer {
+  background: linear-gradient(105deg, var(--gold) 20%, var(--gold-light) 50%, var(--gold) 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Fade up animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Thin gold rule */
+.rule-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Section label */
+.section-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Noise overlay for texture */
+.noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Card glass effect */
+.glass-card {
+  background: rgba(13, 21, 38, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--navy-border);
+}
+
+/* Gold button */
+.btn-gold {
+  background: linear-gradient(135deg, #b8913f 0%, #e0c07a 50%, #b8913f 100%);
+  background-size: 200% auto;
+  color: #0d1526;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  padding: 13px 32px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: background-position 0.4s ease, transform 0.2s ease;
+}
+
+.btn-gold:hover {
+  background-position: right center;
+  transform: translateY(-1px);
+}
+
+/* Outline button */
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  padding: 12px 32px;
+  border-radius: 2px;
+  border: 1px solid var(--gold-dim);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+/* Tier card highlight for Voyager */
+.tier-featured {
+  border-color: var(--gold) !important;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
