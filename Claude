@@ -1,1 +1,6 @@
 curl -fsSL https://claude.ai/install.sh | bash
+# Install uv (required to run the project)
+pip install uv
+git clone https://github.com/chozzo11/free-claude-code.git
+cd free-claude-code
+cp .env.example .NVIDIA NIM
