@@ -1,10 +1,10 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Tiers from './components/Tiers'
-import Rewards from './components/Rewards'
-import HowItWorks from './components/HowItWorks'
-import FlightBooking from './components/FlightBooking'
-import Footer from './components/Footer'
+import Navbar from './Navbar'
+import Hero from './Hero'
+import Tiers from './Tiers'
+import Rewards from './Rewards'
+import HowItWorks from './HowItWorks'
+import FlightBooking from './FlightBooking'
+import Footer from './Footer'
 
 export default function App() {
   return (
